@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "5b38634b-2283-45d1-bc2f-3a54b59c6beb",
+		"name": "RCDM",
+		"description": "Rubrik CDM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List VM Live Mount",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Rubrik123!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "rebecca@rubrik.us",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/vmware/vm/snapshot/mount",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"vmware",
+						"vm",
+						"snapshot",
+						"mount"
+					]
+				},
+				"description": "Determines whether or not a Live Mount exists"
+			},
+			"response": []
+		},
+		{
+			"name": "List VM details",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Rubrik123!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "rebecca@rubrik.us",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/vmware/vm?name=RFITZHUGH-WIN",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"vmware",
+						"vm"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "RFITZHUGH-WIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List VM Snapshots",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "{{id}}",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/v1/vmware/vm/{id}/snapshot",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"vmware",
+						"vm",
+						"{id}",
+						"snapshot"
+					],
+					"query": [
+						{
+							"key": "$id",
+							"value": "VirtualMachine:::1226ff04-6100-454f-905b-5df817b6981a-vm-114",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Gets list of VM's snapshots"
+			},
+			"response": []
+		},
+		{
+			"name": "Live Mount VM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/vmware/vm/snapshot/{id}/mount",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"vmware",
+						"vm",
+						"snapshot",
+						"{id}",
+						"mount"
+					]
+				},
+				"description": "Live Mount a VM"
+			},
+			"response": []
+		},
+		{
+			"name": "Live Mount Remove",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/vmware/vm/snapshot/mount/{id}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"vmware",
+						"vm",
+						"snapshot",
+						"mount",
+						"{id}"
+					]
+				},
+				"description": "Remove a VM Live Mount"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "Rubrik123!",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "rebecca@rubrik.us",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e8458e35-6d5d-4bb0-bc8a-f2101d3355f7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6d368697-68a2-4449-bf9c-a59440b8552d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

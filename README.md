@@ -9,4 +9,29 @@ Code and slides in repo. This is from session XYZ at Rubrik Forward (Digital Sum
 ### Prerequisites
 The following pre-requisites are required for this example:
 
-* 
+* Access to a Rubrik CDM cluster
+* Postman
+
+### Use Rubrik REST API Explorer
+The Rubrik REST API Explorer can be accessed by navigating to https://${var.ip_address}/docs/v1/playground.
+
+### Use Postman to navigate Rubrik REST API
+Live Mount a vSphere virtual machine:
+
+1. GET List of VM Live Mounts
+2. GET VM UUID
+3. GET snapshot UUID
+4. POST VM Live Mount
+5. GET List of VM Live Mounts
+6. DEL VM Live Mount
+7. GET List of VM Live Mounts
+
+Postman collection for this function available [here](/REST). 
+
+## Demo 2
+
+### Prerequisites
+The following pre-requisites are required for this example:
+
+
+# Additional Resources
