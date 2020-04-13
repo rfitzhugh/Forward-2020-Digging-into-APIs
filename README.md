@@ -26,12 +26,12 @@ Live Mount a vSphere virtual machine:
 6. DEL VM Live Mount
 7. GET List of VM Live Mounts
 
-Postman collection for this function available [here](/REST). 
+Postman collection for this function available [here](/Postman Collection - Demo - VM Live Mount). 
 
 ## Demo 2
 
 ### Prerequisites
 The following pre-requisites are required for this example:
 
-
+w
 # Additional Resources
