@@ -206,7 +206,7 @@
 					]
 				},
 				"url": {
-					"raw": "{{base_url}}/v1/vmware/vm/snapshot/mount/e97ec5bb-356d-46a5-afa5-dcbf8ab705b1",
+					"raw": "{{base_url}}/v1/vmware/vm/snapshot/mount/{{$guid}}",
 					"host": [
 						"{{base_url}}"
 					],
@@ -216,7 +216,7 @@
 						"vm",
 						"snapshot",
 						"mount",
-						"e97ec5bb-356d-46a5-afa5-dcbf8ab705b1"
+						"{{$guid}}"
 					]
 				},
 				"description": "Remove a VM Live Mount"
