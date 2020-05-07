@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "9215deef-e2c2-4017-a542-cc4e38822933",
+		"name": "Forward",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "vCenter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{vmwareVcenterTotalCount}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VM Count",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{vms {\r\n  numProtected\r\n  numUnprotected\r\n}}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return 5 VMs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  vmwareVirtualMachineConnection(first: 5) {\r\n    edges {\r\n      node {\r\n        name\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Local VM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  vmwareVirtualMachineConnection(name: \"jbrasser-win\", primaryClusterId: \"local\") {\r\n    edges {\r\n      node {\r\n        name,\r\n        id,\r\n        primaryClusterId,\r\n        configuredSlaDomainId\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Multiple VM - Fragment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  windowsVM: vmwareVirtualMachineConnection(name: \"jbrasser-win\", primaryClusterId: \"local\") {\r\n    ...vmWareVM\r\n  }\r\n  linuxVM: vmwareVirtualMachineConnection(name: \"jbrasser-lin\", primaryClusterId: \"local\") {\r\n    ...vmWareVM\r\n  }\r\n}\r\n  \r\nfragment vmWareVM on GraphQlVmwareVirtualMachineConnection {\r\n  edges {\r\n    node {\r\n      name,\r\n      id,\r\n      primaryClusterId,\r\n      configuredSlaDomainId\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Multiple VM - SLA Info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  windowsVM: vmwareVirtualMachineConnection(name: \"jbrasser-win\", primaryClusterId: \"local\") {\r\n    ...vmWareVM\r\n  }\r\n  linuxVM: vmwareVirtualMachineConnection(name: \"jbrasser-lin\", primaryClusterId: \"local\") {\r\n    ...vmWareVM\r\n  }\r\n}\r\n  \r\nfragment vmWareVM on GraphQlVmwareVirtualMachineConnection {\r\n  edges {\r\n    node {\r\n      name,\r\n      id,\r\n      primaryClusterId,\r\n      effectiveSlaDomain {\r\n          name,\r\n          id\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return SLAs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  slaDomainConnection(name: \"RubrikForward\") {\r\n    nodes {\r\n      name\r\n      frequencies {\r\n        hourly{\r\n\t\t\t...frequenciesValues\r\n        }\r\n        daily{\r\n\t\t\t...frequenciesValues\r\n        }\r\n      }\r\n      slaObjectCount {\r\n        numTotalProtectedObjects\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nfragment frequenciesValues on GraphQlFrequencyConfig {\r\n  frequency,\r\n  retention\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://cluster-b.rubrik.us/api/internal/graphql",
+					"protocol": "https",
+					"host": [
+						"cluster-b",
+						"rubrik",
+						"us"
+					],
+					"path": [
+						"api",
+						"internal",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "BestMike123!",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "jaap.brasser@rubrik.us",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "be2e8a66-a25c-455c-9888-cd1d01f8feb1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "201f1da8-3d84-44c8-932a-9750a4693a35",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
