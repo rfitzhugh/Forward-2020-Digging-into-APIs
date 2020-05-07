@@ -54,4 +54,4 @@ Live Mount a vSphere virtual machine:
 6. Retrieve multiple VMs, including SLA info, using aliases and a fragment
 7. Retrieve information about the applied SLA
 
-Postman collection for this function available [here](/Postman Collection - Demo - GraphQL/Rubrik Forward GraphQL API Demo.postman_collection.json). 
+Postman collection for this function available [here](/Postman%20Collection%20-%20Demo%20-%20GraphQL/Rubrik%20Forward%20GraphQL%20API Demo.postman_collection.json). 
