@@ -33,7 +33,7 @@ Live Mount a vSphere virtual machine:
 6. DEL VM Live Mount
 7. GET List of VM Live Mounts
 
-Postman collection for this function available [here](/Postman%20Collection%20-%20Demo%20-%20VM%20Live%20Mount). 
+Postman collection for this function available [here](/Postman%20Collection%20-%20Demo%20-%20VM%20Live%20Mount).
 
 # GraphQL API Demos
 
@@ -54,4 +54,4 @@ Live Mount a vSphere virtual machine:
 6. Retrieve multiple VMs, including SLA info, using aliases and a fragment
 7. Retrieve information about the applied SLA
 
-Postman collection for this function available [here](/Postman%20Collection%20-%20Demo%20-%20GraphQL/Rubrik%20Forward%20GraphQL%20API Demo.postman_collection.json). 
+Postman collection for this function available [here](/Postman%20Collection%20-%20Demo%20-%20GraphQL).
