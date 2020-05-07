@@ -34,3 +34,24 @@ Live Mount a vSphere virtual machine:
 7. GET List of VM Live Mounts
 
 Postman collection for this function available [here](/Postman%20Collection%20-%20Demo%20-%20VM%20Live%20Mount). 
+
+# GraphQL API Demos
+
+## Prerequisites
+The following pre-requisites are required for this example:
+
+* Access to a Rubrik CDM cluster
+* Postman
+
+## Use Postman to interact with Rubrik GraphQL API
+Live Mount a vSphere virtual machine:
+
+1. Retrieve count of number of vCenters
+2. Retrieve count of protected and unprotected VMs
+3. Retrieve the names of 5 VMs
+4. Retrieve information about a specified VM
+5. Retrieve multiple VMs using aliases and a fragment
+6. Retrieve multiple VMs, including SLA info, using aliases and a fragment
+7. Retrieve information about the applied SLA
+
+Postman collection for this function available [here](./Postman Collection - Demo - GraphQL/Rubrik Forward GraphQL API Demo.postman_collection.json). 
